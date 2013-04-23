@@ -6,32 +6,32 @@ First Release
 
 ###Phase1: SetUp <br>
 
--[x] Add files to repo
--[x] Create project
--[ ] Set up app at itunes connect
+-[x] Add files to repo <br>
+-[x] Create project <br>
+-[ ] Set up app at itunes connect <br>
 
 ###Phase 2: core Setup<br>
 
--[ ] Design the structure
--[ ] Write the main objects structure
+-[ ] Design the structure <br>
+-[ ] Write the main objects structure <br>
 
 ###Phase 3: Iphone Gui<br>
 
--[ ] Write the view Controllers
+-[ ] Write the view Controllers <br>
 
 ###Phase 4: IPad Gui<br>
 
--[ ] Write the view Controllers
+-[ ] Write the view Controllers <br>
 
 
-###Phase 5: Testing
+###Phase 5: Testing <br>
 
--[ ] Test everything
--[ ] Release version 1.5 with bug fixes
+-[ ] Test everything <br>
+-[ ] Release version 1.5 with bug fixes <br>
 
 Seccond Release
 ---------------
 
-###Phase 1: Incorperate Icloud
+###Phase 1: Incorperate Icloud<br>
 
 
