@@ -2,10 +2,10 @@ ToDo
 ====
 
 Phase1: SetUp
-- [] Set Up online Repo
-- [] Set Up Local Reop
-- [] Create the project
-- [] Finish Readme
+- [ ] Set Up online Repo
+- [ ] Set Up Local Reop
+- [ ] Create the project
+- [ ] Finish Readme
 
 Phase 2: core Setup
 
