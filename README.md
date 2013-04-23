@@ -2,7 +2,7 @@ ToDo
 ====
 
 Phase1: SetUp
--[] Set Up online Repo
+-[x] Set Up online Repo
 -[] Set Up Local Reop
 -[] Create the project
 -[] Finish Readme
