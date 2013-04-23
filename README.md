@@ -13,7 +13,7 @@ Phase1: SetUp <br>
 - [ ] references, definitions added
 - [ ] references added within sections, calculations checked
 - [ ] formatting
-- 
+
 Phase 2: core Setup
 
 Phase 3: Iphone Gui
