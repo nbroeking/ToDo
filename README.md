@@ -1,23 +1,37 @@
 ToDo
 ====
 
-Phase1: SetUp <br>
+First Release
+-------------
 
-- [x] sections created
-- [ ] introduction
-- [ ] section 1 - what are generics
-- [ ] section 2 - initiation of jsr
-- [ ] section 3 - draft revisions
-- [ ] section 4 - final draft and approval
-- [ ] section 5 - modifications and effects
-- [ ] references, definitions added
-- [ ] references added within sections, calculations checked
-- [ ] formatting
+###Phase1: SetUp <br>
 
-Phase 2: core Setup
+-[x] Add files to repo
+-[x] Create project
+-[ ] Set up app at itunes connect
 
-Phase 3: Iphone Gui
+###Phase 2: core Setup<br>
 
-Phase 4: Ipad Gui
+-[ ] Design the structure
+-[ ] Write the main objects structure
 
-Phase 5: Incorperating Computer
+###Phase 3: Iphone Gui<br>
+
+-[ ] Write the view Controllers
+
+###Phase 4: IPad Gui<br>
+
+-[ ] Write the view Controllers
+
+
+###Phase 5: Testing
+
+-[ ] Test everything
+-[ ] Release version 1.5 with bug fixes
+
+Seccond Release
+---------------
+
+###Phase 1: Incorperate Icloud
+
+
