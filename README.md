@@ -14,6 +14,8 @@ First Release
 
 -[ ] Design the structure <br>
 -[ ] Write the main objects structure <br>
+-[ ] Design the Interfaces Graphics
+-[ ] Design the Interfaces
 
 ###Phase 3: Iphone Gui<br>
 
