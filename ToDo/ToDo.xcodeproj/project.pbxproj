@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		562EEFCE1727772200251985 /* MainNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 562EEFCD1727772200251985 /* MainNavigationViewController.m */; };
+		562EEFD117277FC300251985 /* MainSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 562EEFD017277FC300251985 /* MainSplitViewController.m */; };
 		56340AF51726E9CE00D98EF7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56340AF41726E9CE00D98EF7 /* UIKit.framework */; };
 		56340AF71726E9CE00D98EF7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56340AF61726E9CE00D98EF7 /* Foundation.framework */; };
 		56340AF91726E9CE00D98EF7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56340AF81726E9CE00D98EF7 /* CoreGraphics.framework */; };
@@ -38,6 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		562EEFCC1727772200251985 /* MainNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainNavigationViewController.h; path = ../MainNavigationViewController.h; sourceTree = "<group>"; };
+		562EEFCD1727772200251985 /* MainNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainNavigationViewController.m; path = ../MainNavigationViewController.m; sourceTree = "<group>"; };
+		562EEFCF17277FC300251985 /* MainSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainSplitViewController.h; sourceTree = "<group>"; };
+		562EEFD017277FC300251985 /* MainSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainSplitViewController.m; sourceTree = "<group>"; };
 		56340AF11726E9CE00D98EF7 /* ToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56340AF41726E9CE00D98EF7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		56340AF61726E9CE00D98EF7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -124,6 +130,10 @@
 			children = (
 				56340B031726E9CE00D98EF7 /* AppDelegate.h */,
 				56340B041726E9CE00D98EF7 /* AppDelegate.m */,
+				562EEFCF17277FC300251985 /* MainSplitViewController.h */,
+				562EEFD017277FC300251985 /* MainSplitViewController.m */,
+				562EEFCD1727772200251985 /* MainNavigationViewController.m */,
+				562EEFCC1727772200251985 /* MainNavigationViewController.h */,
 				56340B0C1726E9CE00D98EF7 /* MainStoryboard_iPhone.storyboard */,
 				56340B0F1726E9CE00D98EF7 /* MainStoryboard_iPad.storyboard */,
 				56340B121726E9CE00D98EF7 /* MasterViewController.h */,
@@ -283,6 +293,8 @@
 				56340B051726E9CE00D98EF7 /* AppDelegate.m in Sources */,
 				56340B141726E9CE00D98EF7 /* MasterViewController.m in Sources */,
 				56340B171726E9CE00D98EF7 /* DetailViewController.m in Sources */,
+				562EEFCE1727772200251985 /* MainNavigationViewController.m in Sources */,
+				562EEFD117277FC300251985 /* MainSplitViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,6 +485,7 @@
 				56340B311726E9CF00D98EF7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		56340B321726E9CF00D98EF7 /* Build configuration list for PBXNativeTarget "ToDoTests" */ = {
 			isa = XCConfigurationList;
@@ -481,6 +494,7 @@
 				56340B341726E9CF00D98EF7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainNavigationViewController.h"
+#import "MainSplitViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) MainNavigationViewController *MainController;
+@property (strong, nonatomic) MainSplitViewController *MainSplitController;
 
 @end

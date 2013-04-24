@@ -9,14 +9,28 @@
 #import "AppDelegate.h"
 
 @implementation AppDelegate
+@synthesize MainController;
+@synthesize MainSplitController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+
     // Override point for customization after application launch.
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+    
+    // If it is an Ipad Set the main controller
+   if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+    {
+        MainController = nil;
+        MainSplitController = (MainSplitViewController*)self.window.rootViewController;
+        
         UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-        UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
-        splitViewController.delegate = (id)navigationController.topViewController;
+        UINavigationController *controller = [splitViewController.viewControllers lastObject];
+        splitViewController.delegate = (id)controller.topViewController;
+    }
+    else // If it is an iphone then set the navigation controller
+    {
+        MainController = (MainNavigationViewController*)self.window.rootViewController;
+        MainSplitController = nil;
     }
     return YES;
 }
