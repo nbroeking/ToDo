@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ToDoList.h"
 @interface MainNavigationViewController : UINavigationController
 
+@property (strong, nonatomic) NSMutableArray *lists;
+
+-(void) saveData;
+-(void) loadData;
 @end

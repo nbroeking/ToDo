@@ -35,4 +35,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void) saveData
+{
+    
+}
+-(void) loadData
+{
+    
+}
 @end

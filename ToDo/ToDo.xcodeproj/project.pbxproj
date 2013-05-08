@@ -27,6 +27,10 @@
 		56340B211726E9CF00D98EF7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56340AF61726E9CE00D98EF7 /* Foundation.framework */; };
 		56340B291726E9CF00D98EF7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56340B271726E9CF00D98EF7 /* InfoPlist.strings */; };
 		56340B2C1726E9CF00D98EF7 /* ToDoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 56340B2B1726E9CF00D98EF7 /* ToDoTests.m */; };
+		56A4D4061738158500CCDE87 /* ToDoList.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A4D4051738158500CCDE87 /* ToDoList.m */; };
+		56AC46AD1739C68900A8A81C /* settings_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 56AC46AC1739C68900A8A81C /* settings_button.png */; };
+		56AC46B21739D10000A8A81C /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56AC46B11739D10000A8A81C /* ListViewController.m */; };
+		56B9A05C17304C4300D482E6 /* ToDoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 56B9A05B17304C4300D482E6 /* ToDoItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +73,13 @@
 		56340B281726E9CF00D98EF7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		56340B2A1726E9CF00D98EF7 /* ToDoTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToDoTests.h; sourceTree = "<group>"; };
 		56340B2B1726E9CF00D98EF7 /* ToDoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToDoTests.m; sourceTree = "<group>"; };
+		56A4D4041738158500CCDE87 /* ToDoList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoList.h; sourceTree = "<group>"; };
+		56A4D4051738158500CCDE87 /* ToDoList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoList.m; sourceTree = "<group>"; };
+		56AC46AC1739C68900A8A81C /* settings_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings_button.png; sourceTree = "<group>"; };
+		56AC46B01739D10000A8A81C /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
+		56AC46B11739D10000A8A81C /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
+		56B9A05A17304C4300D482E6 /* ToDoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoItem.h; sourceTree = "<group>"; };
+		56B9A05B17304C4300D482E6 /* ToDoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,14 +143,12 @@
 				56340B041726E9CE00D98EF7 /* AppDelegate.m */,
 				562EEFCF17277FC300251985 /* MainSplitViewController.h */,
 				562EEFD017277FC300251985 /* MainSplitViewController.m */,
-				562EEFCD1727772200251985 /* MainNavigationViewController.m */,
 				562EEFCC1727772200251985 /* MainNavigationViewController.h */,
+				562EEFCD1727772200251985 /* MainNavigationViewController.m */,
+				56AC46AF1739D0A100A8A81C /* ViewControllers */,
+				56B9A05917304BA800D482E6 /* Items */,
 				56340B0C1726E9CE00D98EF7 /* MainStoryboard_iPhone.storyboard */,
 				56340B0F1726E9CE00D98EF7 /* MainStoryboard_iPad.storyboard */,
-				56340B121726E9CE00D98EF7 /* MasterViewController.h */,
-				56340B131726E9CE00D98EF7 /* MasterViewController.m */,
-				56340B151726E9CE00D98EF7 /* DetailViewController.h */,
-				56340B161726E9CE00D98EF7 /* DetailViewController.m */,
 				56340AFB1726E9CE00D98EF7 /* Supporting Files */,
 			);
 			path = ToDo;
@@ -148,6 +157,7 @@
 		56340AFB1726E9CE00D98EF7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				56AC46AC1739C68900A8A81C /* settings_button.png */,
 				56340AFC1726E9CE00D98EF7 /* ToDo-Info.plist */,
 				56340AFD1726E9CE00D98EF7 /* InfoPlist.strings */,
 				56340B001726E9CE00D98EF7 /* main.m */,
@@ -176,6 +186,30 @@
 				56340B271726E9CF00D98EF7 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		56AC46AF1739D0A100A8A81C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				56340B121726E9CE00D98EF7 /* MasterViewController.h */,
+				56340B131726E9CE00D98EF7 /* MasterViewController.m */,
+				56340B151726E9CE00D98EF7 /* DetailViewController.h */,
+				56340B161726E9CE00D98EF7 /* DetailViewController.m */,
+				56AC46B01739D10000A8A81C /* ListViewController.h */,
+				56AC46B11739D10000A8A81C /* ListViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		56B9A05917304BA800D482E6 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				56B9A05A17304C4300D482E6 /* ToDoItem.h */,
+				56B9A05B17304C4300D482E6 /* ToDoItem.m */,
+				56A4D4041738158500CCDE87 /* ToDoList.h */,
+				56A4D4051738158500CCDE87 /* ToDoList.m */,
+			);
+			name = Items;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,6 +289,7 @@
 				56340B0B1726E9CE00D98EF7 /* Default-568h@2x.png in Resources */,
 				56340B0E1726E9CE00D98EF7 /* MainStoryboard_iPhone.storyboard in Resources */,
 				56340B111726E9CE00D98EF7 /* MainStoryboard_iPad.storyboard in Resources */,
+				56AC46AD1739C68900A8A81C /* settings_button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +330,9 @@
 				56340B171726E9CE00D98EF7 /* DetailViewController.m in Sources */,
 				562EEFCE1727772200251985 /* MainNavigationViewController.m in Sources */,
 				562EEFD117277FC300251985 /* MainSplitViewController.m in Sources */,
+				56B9A05C17304C4300D482E6 /* ToDoItem.m in Sources */,
+				56A4D4061738158500CCDE87 /* ToDoList.m in Sources */,
+				56AC46B21739D10000A8A81C /* ListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

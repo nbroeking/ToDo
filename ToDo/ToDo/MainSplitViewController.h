@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ToDoList.h"
 
-@interface MainSplitViewController : UISplitViewController
+@interface MainSplitViewController : UISplitViewController <UISplitViewControllerDelegate>
+
+@property (strong, nonatomic) NSMutableArray *lists;
+
+-(void) saveData;
+-(void) loadData;
 
 @end

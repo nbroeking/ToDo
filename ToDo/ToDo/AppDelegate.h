@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "MainNavigationViewController.h"
 #import "MainSplitViewController.h"
+#import "ToDoItem.h"
+#import "ToDoList.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

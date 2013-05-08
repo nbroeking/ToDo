@@ -9,10 +9,10 @@
 #import "MainNavigationViewController.h"
 
 @interface MainNavigationViewController ()
-
 @end
 
 @implementation MainNavigationViewController
+@synthesize lists;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,6 +26,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    ToDoItem *nic = [[ToDoItem alloc] init:@"Nic" :[[NSDate alloc] init] :false :@"We Have sex with Nic" :NULL];
+    
+    NSMutableArray *mainList = [[NSMutableArray alloc] init]; //Load from memory
+    
+    [mainList addObject:nic];
+    
+    ToDoList *all = [[ToDoList alloc] init:@"All" :mainList];
+    
+    lists = [[NSMutableArray alloc] init];
+    
+    [lists addObject:all];
+    
+    
 	// Do any additional setup after loading the view.
 }
 
@@ -35,4 +49,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)saveData
+{
+    
+}
+-(void) loadData
+{
+    
+}
 @end
