@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainNavigationViewController.h"
 
 @interface ListViewController : UITableViewController
 
+@property (strong, nonatomic) ToDoList *list;
 @end

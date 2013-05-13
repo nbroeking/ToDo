@@ -7,6 +7,7 @@
 //
 
 #import "MainNavigationViewController.h"
+#import "MasterViewController.h"
 
 @interface MainNavigationViewController ()
 @end
@@ -27,20 +28,15 @@
 {
     [super viewDidLoad];
     
-    ToDoItem *nic = [[ToDoItem alloc] init:@"Nic" :[[NSDate alloc] init] :false :@"We Have sex with Nic" :NULL];
+    if( lists == nil)
+    {
+        lists = [[NSMutableArray alloc] init];
     
-    NSMutableArray *mainList = [[NSMutableArray alloc] init]; //Load from memory
-    
-    [mainList addObject:nic];
-    
-    ToDoList *all = [[ToDoList alloc] init:@"All" :mainList];
-    
-    lists = [[NSMutableArray alloc] init];
-    
-    [lists addObject:all];
-    
-    
-	// Do any additional setup after loading the view.
+        ToDoList *all = [[ToDoList alloc] init:@"All" :[[NSMutableArray alloc]init] :@"Misc."];
+
+        [lists addObject:all];
+    }
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,10 +47,28 @@
 
 -(void)saveData
 {
+    NSLog(@"Saving Data");
     
+    [NSKeyedArchiver archiveRootObject:lists toFile:[self archivePath]];
 }
 -(void) loadData
 {
+    NSLog(@"Load Data");
+    NSMutableArray *temp = [[NSKeyedUnarchiver unarchiveObjectWithFile:[self archivePath]] mutableCopy];
     
+    if( temp)
+    {
+        NSLog(@"Sets List");
+        lists = [[NSMutableArray alloc] initWithArray:temp];
+        
+        NSLog(@"%d number of lists", [lists count]);
+    }
+}
+-(NSString*) archivePath
+{
+    // This finds the archive path for history nights
+    NSArray *directories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *directory = [ directories objectAtIndex:0];
+    return [directory stringByAppendingPathComponent:@"Data.bin"];
 }
 @end

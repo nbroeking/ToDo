@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		562A4FA3173B0BF300E652D9 /* SettingsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 562A4FA2173B0BF300E652D9 /* SettingsListViewController.m */; };
 		562EEFCE1727772200251985 /* MainNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 562EEFCD1727772200251985 /* MainNavigationViewController.m */; };
 		562EEFD117277FC300251985 /* MainSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 562EEFD017277FC300251985 /* MainSplitViewController.m */; };
 		56340AF51726E9CE00D98EF7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56340AF41726E9CE00D98EF7 /* UIKit.framework */; };
@@ -44,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		562A4FA1173B0BF300E652D9 /* SettingsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsListViewController.h; sourceTree = "<group>"; };
+		562A4FA2173B0BF300E652D9 /* SettingsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsListViewController.m; sourceTree = "<group>"; };
 		562EEFCC1727772200251985 /* MainNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainNavigationViewController.h; path = ../MainNavigationViewController.h; sourceTree = "<group>"; };
 		562EEFCD1727772200251985 /* MainNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainNavigationViewController.m; path = ../MainNavigationViewController.m; sourceTree = "<group>"; };
 		562EEFCF17277FC300251985 /* MainSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainSplitViewController.h; sourceTree = "<group>"; };
@@ -197,6 +200,8 @@
 				56340B161726E9CE00D98EF7 /* DetailViewController.m */,
 				56AC46B01739D10000A8A81C /* ListViewController.h */,
 				56AC46B11739D10000A8A81C /* ListViewController.m */,
+				562A4FA1173B0BF300E652D9 /* SettingsListViewController.h */,
+				562A4FA2173B0BF300E652D9 /* SettingsListViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -333,6 +338,7 @@
 				56B9A05C17304C4300D482E6 /* ToDoItem.m in Sources */,
 				56A4D4061738158500CCDE87 /* ToDoList.m in Sources */,
 				56AC46B21739D10000A8A81C /* ListViewController.m in Sources */,
+				562A4FA3173B0BF300E652D9 /* SettingsListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

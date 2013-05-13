@@ -12,12 +12,14 @@
 @interface ToDoList : NSObject
 
 @property(strong, nonatomic) NSString *name;
+@property(strong, nonatomic) NSString *category;
+
 @property(strong, nonatomic) NSMutableArray *list;
 
 -(id)initWithCoder:(NSCoder *)aDecoder;
 -(void)encodeWithCoder:(NSCoder *)aCoder;
 -(id) copyWithZone: (NSZone *) zone;
--(id)init : (NSString*)namet : (NSMutableArray*)listt;
+-(id)init : (NSString*)namet : (NSMutableArray*)listt :(NSString*) categoryt;
 -(id)init : (ToDoList*) copy;
 
 @end

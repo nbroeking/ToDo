@@ -30,6 +30,7 @@
     {
         MainController = (MainNavigationViewController*)self.window.rootViewController;
         MainSplitController = nil;
+        [MainController loadData];
     }
     return YES;
 }
@@ -68,11 +69,11 @@
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
     {
-        [(MainSplitViewController*)self.window.rootViewController loadData];
+        //[(MainSplitViewController*)self.window.rootViewController loadData];
     }
     else
     {
-        [(MainNavigationViewController*)self.window.rootViewController loadData];
+        //[(MainNavigationViewController*)self.window.rootViewController loadData];
     }
 }
 
@@ -81,11 +82,11 @@
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
     {
-        [(MainSplitViewController*)self.window.rootViewController loadData];
+        //[(MainSplitViewController*)self.window.rootViewController loadData];
     }
     else
     {
-        [(MainNavigationViewController*)self.window.rootViewController loadData];
+        //[(MainNavigationViewController*)self.window.rootViewController loadData];
     }
 }
 

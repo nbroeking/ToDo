@@ -12,6 +12,8 @@
 
 #import "MainNavigationViewController.h"
 #import "MainSplitViewController.h"
+#import "SettingsListViewController.h"
+#import "ListViewController.h"
 
 @interface MasterViewController ()
 @end
@@ -30,23 +32,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSLog(@"Sup");
 	// Do any additional setup after loading the view, typically from a nib.
-
     //[self.editButtonItem setAction:@selector(changeValue)];
      self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
+    self.title = @"ToDo Lists";
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     
     self.navigationItem.rightBarButtonItem = addButton;
     
     self.tableView.allowsSelectionDuringEditing = true;
     
-
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
+ 
+    [self setEditing:NO animated:YES];
     [self.tableView reloadData];
 }
 - (void)didReceiveMemoryWarning
@@ -55,61 +60,31 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void) changeName:(id)sender
-{
-    [(UITextField*)sender resignFirstResponder];
-}
-
--(void)textFieldDidEndEditing:(UITextField *)textField
-{
-    NSLog(@"Done");
-    UITableViewCell *current = ((UITableViewCell*)(textField.superview));
-    
-    ToDoList *list = [[(MainNavigationViewController*)self.navigationController lists] objectAtIndex:[self.tableView indexPathForCell:current].row];
-    
-    if( ![textField.text isEqual: @""] )
-    {
-        [list setName:[[NSString alloc] initWithString:textField.text]];
-    }
-    [self.tableView reloadData];
-    [textField resignFirstResponder];
-    [textField removeFromSuperview];
-}
-
 - (void)setEditing:(BOOL)editing animated:(BOOL)animate
 {
-    [super setEditing:editing animated:animate];
     
+    [super setEditing:editing animated:animate];
     if(editing)
     {
-        int size = [[(MainNavigationViewController*)self.navigationController lists]count];
-        for(int i = 1; i < size; i++ )
-        {
-            [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]].selectionStyle = UITableViewCellSelectionStyleNone;
-            NSString *temp = [[NSString alloc] initWithString: [[[(MainNavigationViewController*)self.navigationController lists] objectAtIndex:i] name]];
-            
-            [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]].textLabel.text = [[NSString alloc] initWithFormat:@"%@: Press to Change", temp];
-        }
+        [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]].selectionStyle = UITableViewCellSelectionStyleNone;
+        
     }
     else
     {
-        int size = [[(MainNavigationViewController*)self.navigationController lists]count];
-        for(int i = 1; i < size; i++ )
-        {
-            [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]].selectionStyle = UITableViewCellSelectionStyleBlue;
-        }
+        [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]].selectionStyle = UITableViewCellSelectionStyleBlue;
         
-        [self.tableView reloadData];
     }
+[self.tableView reloadSections:[[NSIndexSet alloc] initWithIndex:0]  withRowAnimation:UITableViewRowAnimationFade];
+
 }
 
 - (void)insertNewObject:(id)sender
 {
-    ToDoList *temp = [[ToDoList alloc] init:@"New List" :NULL];
-    
+    ToDoList *temp = [[ToDoList alloc] init:@"New List" :[[NSMutableArray alloc] init] : @"Misc."];
+
     [[(MainNavigationViewController*)self.navigationController lists] addObject:temp];
     
-    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:1 inSection:0]] withRowAnimation:YES];
+    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow: [[(MainNavigationViewController*)self.navigationController lists] count] -1 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 #pragma mark - Table View
@@ -151,8 +126,8 @@
 
     if( indexPath.section == 0)
     {
-        ToDoItem *temp = [[(MainNavigationViewController*)self.navigationController lists] objectAtIndex:indexPath.row];
-        cell.textLabel.text = [[NSString alloc] initWithString:[temp name]];
+        cell.textLabel.text = [[NSString alloc] initWithString:[[[(MainNavigationViewController*)self.navigationController lists] objectAtIndex:indexPath.row] name] ];
+        cell.detailTextLabel.text = [[NSString alloc] initWithString:[[[(MainNavigationViewController*)self.navigationController lists]objectAtIndex:indexPath.row] category] ];
         
         cell.imageView.image = NULL;
         
@@ -160,6 +135,7 @@
     else
     {
         cell.textLabel.text = @"Settings";
+        cell.detailTextLabel.text = @"";
         cell.imageView.image = [UIImage imageNamed:@"settings_button.png"];
     }
     return cell;
@@ -183,6 +159,11 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
+        //int size = [[((MainNavigationViewController*)self.navigationController) lists] count];
+        
+            [[(MainNavigationViewController*)self.navigationController lists] removeObjectAtIndex:indexPath.row];
+        
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
       //  [_objects removeObjectAtIndex:indexPath.row];
         //[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
@@ -205,8 +186,8 @@
 {
     // Return NO if you do not want the item to be re-orderable.
     return YES;
-}
-*/
+}*/
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -223,16 +204,8 @@
             {
                 if(indexPath.row != 0)
                 {
-                    [self.tableView cellForRowAtIndexPath:indexPath].textLabel.text = @"Name: ";
-                    UITextField *weightField = [[UITextField alloc] initWithFrame:CGRectMake(130, 10, 170, 30)];
-                    weightField.tag = 1;
-                    weightField.keyboardType = UIKeyboardTypeAlphabet;
-                    [weightField setReturnKeyType:UIReturnKeyDone];
-                    [weightField addTarget:self action:@selector(changeName:) forControlEvents:UIControlEventEditingDidEndOnExit];
-                    [weightField setDelegate:self];
-                    [weightField setPlaceholder:@"New Name"];
-                    [ [self.tableView cellForRowAtIndexPath:indexPath] addSubview:weightField];
-                    [weightField becomeFirstResponder];
+                    
+                   [self performSegueWithIdentifier:@"settingsList" sender:self];
                 }
             }
             else
@@ -242,7 +215,7 @@
         }
         else
         {
-            [self performSegueWithIdentifier:@"mainList" sender:self];
+            
         }
     }
 }
@@ -250,14 +223,21 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     [super prepareForSegue:segue sender:sender];
+    
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         //NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         //NSDate *object = _objects[indexPath.row];
         //[[segue destinationViewController] setDetailItem:object];
     }
+    else if( ([[segue identifier] isEqualToString:@"settingsList"]))
+    {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        [((SettingsListViewController*)[segue destinationViewController]) setList:[[(MainNavigationViewController*)self.navigationController lists] objectAtIndex:indexPath.row]];
+    }
     if([[segue identifier] isEqualToString:@"mainList"])
     {
-        
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        [(ListViewController*)([segue destinationViewController]) setList:[[(MainNavigationViewController*)self.navigationController lists] objectAtIndex:indexPath.row]];
     }
 }
 

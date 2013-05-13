@@ -11,6 +11,7 @@
 @implementation ToDoList
 @synthesize name;
 @synthesize list;
+@synthesize category;
 
 - (id)init
 {
@@ -18,6 +19,7 @@
     if (self)
     {
         name = @"All";
+        category = @"Misc.";
         list = [[NSMutableArray alloc] init];
     }
     return self;
@@ -30,18 +32,20 @@
     {
         name = [[NSString alloc] initWithString:[copy name]];
         list = [[NSMutableArray alloc] initWithArray: [copy list]];
+        category = [[NSString alloc] initWithString:[copy category]];
     }
     
     return self;
     
 }
--(id)init : (NSString*)namet : (NSMutableArray*)listt
+-(id)init : (NSString*)namet : (NSMutableArray*)listt :(NSString*) categoryt
 {
     self = [super init];
     if (self)
     {
         name = [[NSString alloc] initWithString:namet];
         list = [[NSMutableArray alloc] initWithArray:listt];
+        category = [[NSString alloc] initWithString:categoryt];
     }
     return self;
 }
@@ -52,6 +56,7 @@
     
     [copy setName:[[NSString alloc] initWithString:[self name]]];
     [copy setList: [[NSMutableArray alloc] initWithArray:[self list]]];
+    [copy setCategory:[[NSString alloc] initWithString:[self category]]];
     
     return copy;
 }
@@ -64,6 +69,7 @@
     {
         name = [[NSString alloc]initWithString:[aDecoder decodeObjectForKey:@"nameKey"]];
         list = [[NSMutableArray alloc] initWithArray:[aDecoder decodeObjectForKey:@"listKey"]];
+        category = [[NSString alloc] initWithString:[aDecoder decodeObjectForKey:@"catKey"]];
     }
     
     return self;
@@ -72,5 +78,6 @@
 {
     [aCoder encodeObject:name forKey:@"nameKey"];
     [aCoder encodeObject:list forKey:@"listKey"];
+    [aCoder encodeObject:category forKey:@"catKey"];
 }
 @end
