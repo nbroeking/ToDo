@@ -100,6 +100,11 @@
 {
     
     [list setName:textField.text];
+    
+    for(int i = 0; i < [[list list] count]; i++)
+    {
+        [[[list list] objectAtIndex:i]setParentName:textField.text];
+    }
     //Set the information
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

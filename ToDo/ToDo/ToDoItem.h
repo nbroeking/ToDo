@@ -15,11 +15,12 @@
 @property  bool completed;
 @property (strong, nonatomic) NSDate *completedDate;
 @property (strong, nonatomic) NSString *description;
+@property (strong, nonatomic) NSString *parentName;
 
 -(void)encodeWithCoder:(NSCoder *)aCoder;
 -(id)initWithCoder:(NSCoder *)aDecoder;
 -(id) copyWithZone: (NSZone *) zone;
--(id)init: (NSString*) namet : (NSDate*)rightNow : (bool) complete : (NSString*)descrip : (NSDate*)enddate;
+-(id)init: (NSString*) namet : (NSDate*)rightNow : (bool) complete : (NSString*)descrip : (NSDate*)enddate :(NSString*) parentNamet;
 -(id)init: (ToDoItem*) copy;
 
 @end

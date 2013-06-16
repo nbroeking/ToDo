@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "ToDoList.h"
+#import "ListViewController.h"
+
 @interface MainNavigationViewController : UINavigationController
 
 @property (strong, nonatomic) NSMutableArray *lists;
+
+@property (strong, nonatomic) UIViewController *rootlist;
 
 -(void) saveData;
 -(void) loadData;

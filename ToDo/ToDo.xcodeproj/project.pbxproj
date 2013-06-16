@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		562A4FA3173B0BF300E652D9 /* SettingsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 562A4FA2173B0BF300E652D9 /* SettingsListViewController.m */; };
+		562BB19C175C4DC900E7776F /* itemIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 562BB19B175C4DC900E7776F /* itemIcon.png */; };
 		562EEFCE1727772200251985 /* MainNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 562EEFCD1727772200251985 /* MainNavigationViewController.m */; };
 		562EEFD117277FC300251985 /* MainSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 562EEFD017277FC300251985 /* MainSplitViewController.m */; };
 		56340AF51726E9CE00D98EF7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56340AF41726E9CE00D98EF7 /* UIKit.framework */; };
@@ -28,10 +29,17 @@
 		56340B211726E9CF00D98EF7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56340AF61726E9CE00D98EF7 /* Foundation.framework */; };
 		56340B291726E9CF00D98EF7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56340B271726E9CF00D98EF7 /* InfoPlist.strings */; };
 		56340B2C1726E9CF00D98EF7 /* ToDoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 56340B2B1726E9CF00D98EF7 /* ToDoTests.m */; };
+		56520FCB175C17DA00EE4CA2 /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56520FCA175C17D900EE4CA2 /* ItemViewController.m */; };
+		565CDE86175EF8A50091068B /* CheckIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 565CDE85175EF8A50091068B /* CheckIcon.png */; };
+		5682A29F174B308900434704 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = 5682A29E174B308900434704 /* list.png */; };
+		5682A2A1174B31EC00434704 /* item.png in Resources */ = {isa = PBXBuildFile; fileRef = 5682A2A0174B31EC00434704 /* item.png */; };
 		56A4D4061738158500CCDE87 /* ToDoList.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A4D4051738158500CCDE87 /* ToDoList.m */; };
 		56AC46AD1739C68900A8A81C /* settings_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 56AC46AC1739C68900A8A81C /* settings_button.png */; };
 		56AC46B21739D10000A8A81C /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56AC46B11739D10000A8A81C /* ListViewController.m */; };
 		56B9A05C17304C4300D482E6 /* ToDoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 56B9A05B17304C4300D482E6 /* ToDoItem.m */; };
+		56D2F446176D3E1E0071973A /* EditItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D2F445176D3E1E0071973A /* EditItemViewController.m */; };
+		56F0E39F1751A3EE004BD7E5 /* ToDo.png in Resources */ = {isa = PBXBuildFile; fileRef = 56F0E39E1751A3EE004BD7E5 /* ToDo.png */; };
+		56F0E3A11751A3F1004BD7E5 /* ToDo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 56F0E3A01751A3F1004BD7E5 /* ToDo@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +55,7 @@
 /* Begin PBXFileReference section */
 		562A4FA1173B0BF300E652D9 /* SettingsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsListViewController.h; sourceTree = "<group>"; };
 		562A4FA2173B0BF300E652D9 /* SettingsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsListViewController.m; sourceTree = "<group>"; };
+		562BB19B175C4DC900E7776F /* itemIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = itemIcon.png; sourceTree = "<group>"; };
 		562EEFCC1727772200251985 /* MainNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainNavigationViewController.h; path = ../MainNavigationViewController.h; sourceTree = "<group>"; };
 		562EEFCD1727772200251985 /* MainNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainNavigationViewController.m; path = ../MainNavigationViewController.m; sourceTree = "<group>"; };
 		562EEFCF17277FC300251985 /* MainSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainSplitViewController.h; sourceTree = "<group>"; };
@@ -76,6 +85,11 @@
 		56340B281726E9CF00D98EF7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		56340B2A1726E9CF00D98EF7 /* ToDoTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToDoTests.h; sourceTree = "<group>"; };
 		56340B2B1726E9CF00D98EF7 /* ToDoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToDoTests.m; sourceTree = "<group>"; };
+		56520FC9175C17D900EE4CA2 /* ItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemViewController.h; sourceTree = "<group>"; };
+		56520FCA175C17D900EE4CA2 /* ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemViewController.m; sourceTree = "<group>"; };
+		565CDE85175EF8A50091068B /* CheckIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CheckIcon.png; sourceTree = "<group>"; };
+		5682A29E174B308900434704 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
+		5682A2A0174B31EC00434704 /* item.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = item.png; sourceTree = "<group>"; };
 		56A4D4041738158500CCDE87 /* ToDoList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoList.h; sourceTree = "<group>"; };
 		56A4D4051738158500CCDE87 /* ToDoList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoList.m; sourceTree = "<group>"; };
 		56AC46AC1739C68900A8A81C /* settings_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings_button.png; sourceTree = "<group>"; };
@@ -83,6 +97,10 @@
 		56AC46B11739D10000A8A81C /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
 		56B9A05A17304C4300D482E6 /* ToDoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoItem.h; sourceTree = "<group>"; };
 		56B9A05B17304C4300D482E6 /* ToDoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoItem.m; sourceTree = "<group>"; };
+		56D2F444176D3E1E0071973A /* EditItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditItemViewController.h; sourceTree = "<group>"; };
+		56D2F445176D3E1E0071973A /* EditItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditItemViewController.m; sourceTree = "<group>"; };
+		56F0E39E1751A3EE004BD7E5 /* ToDo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ToDo.png; sourceTree = "<group>"; };
+		56F0E3A01751A3F1004BD7E5 /* ToDo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ToDo@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +130,12 @@
 		56340AE81726E9CE00D98EF7 = {
 			isa = PBXGroup;
 			children = (
+				56F0E3A01751A3F1004BD7E5 /* ToDo@2x.png */,
+				562BB19B175C4DC900E7776F /* itemIcon.png */,
+				56F0E39E1751A3EE004BD7E5 /* ToDo.png */,
+				565CDE85175EF8A50091068B /* CheckIcon.png */,
+				5682A29E174B308900434704 /* list.png */,
+				5682A2A0174B31EC00434704 /* item.png */,
 				56340AFA1726E9CE00D98EF7 /* ToDo */,
 				56340B241726E9CF00D98EF7 /* ToDoTests */,
 				56340AF31726E9CE00D98EF7 /* Frameworks */,
@@ -196,6 +220,10 @@
 			children = (
 				56340B121726E9CE00D98EF7 /* MasterViewController.h */,
 				56340B131726E9CE00D98EF7 /* MasterViewController.m */,
+				56520FC9175C17D900EE4CA2 /* ItemViewController.h */,
+				56520FCA175C17D900EE4CA2 /* ItemViewController.m */,
+				56D2F444176D3E1E0071973A /* EditItemViewController.h */,
+				56D2F445176D3E1E0071973A /* EditItemViewController.m */,
 				56340B151726E9CE00D98EF7 /* DetailViewController.h */,
 				56340B161726E9CE00D98EF7 /* DetailViewController.m */,
 				56AC46B01739D10000A8A81C /* ListViewController.h */,
@@ -295,6 +323,12 @@
 				56340B0E1726E9CE00D98EF7 /* MainStoryboard_iPhone.storyboard in Resources */,
 				56340B111726E9CE00D98EF7 /* MainStoryboard_iPad.storyboard in Resources */,
 				56AC46AD1739C68900A8A81C /* settings_button.png in Resources */,
+				5682A29F174B308900434704 /* list.png in Resources */,
+				5682A2A1174B31EC00434704 /* item.png in Resources */,
+				56F0E39F1751A3EE004BD7E5 /* ToDo.png in Resources */,
+				56F0E3A11751A3F1004BD7E5 /* ToDo@2x.png in Resources */,
+				562BB19C175C4DC900E7776F /* itemIcon.png in Resources */,
+				565CDE86175EF8A50091068B /* CheckIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +373,8 @@
 				56A4D4061738158500CCDE87 /* ToDoList.m in Sources */,
 				56AC46B21739D10000A8A81C /* ListViewController.m in Sources */,
 				562A4FA3173B0BF300E652D9 /* SettingsListViewController.m in Sources */,
+				56520FCB175C17DA00EE4CA2 /* ItemViewController.m in Sources */,
+				56D2F446176D3E1E0071973A /* EditItemViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

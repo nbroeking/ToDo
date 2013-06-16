@@ -14,6 +14,7 @@
 
 @implementation MainNavigationViewController
 @synthesize lists;
+@synthesize rootlist;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,9 +33,15 @@
     {
         lists = [[NSMutableArray alloc] init];
     
-        ToDoList *all = [[ToDoList alloc] init:@"All" :[[NSMutableArray alloc]init] :@"Misc."];
+        ToDoItem *firstItem = [[ToDoItem alloc] init:@"Setup" :[[NSDate alloc] init] :false :@"I need to set up my ToDo Lists." :Nil: @"All"];
+        
+        ToDoList *all = [[ToDoList alloc] init:@"All" :[[NSMutableArray alloc]init] :@"ToDoList"];
 
+        ToDoList *completed = [[ToDoList alloc] init:@"Completed" : [[NSMutableArray alloc] init] :@"ToDoList"];
+        
+        [all setList:[@[firstItem] mutableCopy]];
         [lists addObject:all];
+        [lists addObject:completed];
     }
     // Do any additional setup after loading the view.
 }

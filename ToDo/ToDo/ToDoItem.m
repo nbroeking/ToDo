@@ -14,6 +14,7 @@
 @synthesize completedDate;
 @synthesize startDate;
 @synthesize name;
+@synthesize parentName;
 
 -(id) init
 {
@@ -25,6 +26,7 @@
         completed = false;
         completedDate = Nil;
         description = @"This is a ToDo item.";
+        parentName = @"All";
     }
     return self;
 }
@@ -38,12 +40,13 @@
         name = [[NSString alloc] initWithString:[copy name]];
         description = [[NSString alloc] initWithString:[copy description]];
         completed = [copy completed];
-        startDate = [copy startDate];
-        completedDate = [copy completedDate];
+        startDate = [[copy startDate]copy];
+        completedDate = [[copy completedDate] copy];
+        parentName = [[NSString alloc] initWithString:[copy parentName]];
     }
     return self;
 }
--(id)init: (NSString*) namet : (NSDate*)rightNow : (bool) complete : (NSString*)descrip : (NSDate*)enddate
+-(id)init: (NSString*) namet : (NSDate*)rightNow : (bool) complete : (NSString*)descrip : (NSDate*)enddate :(NSString*) parentNamet
 {
     self = [super init];
     
@@ -52,8 +55,10 @@
         name = [[NSString alloc] initWithString:namet];
         description = [[NSString alloc] initWithString:descrip];
         completed = complete;
-        startDate = rightNow;
-        completedDate = enddate;
+        startDate = [rightNow copy];
+        completedDate = [enddate copy];
+        parentName = [[NSString alloc] initWithString:parentNamet];
+        
     }
     return self;
 }
@@ -67,6 +72,7 @@
     [copy setCompleted:[self completed]];
     [copy setStartDate:[self startDate]];
     [copy setCompletedDate:[self completedDate]];
+    [copy setParentName:[[NSString alloc] initWithString:[self parentName]]];
     
     return copy;
 }
@@ -86,6 +92,8 @@
         description = [[NSString alloc] initWithString:[aDecoder decodeObjectForKey:@"descriptionKey"]];
 
         [self setCompletedDate:[aDecoder decodeObjectForKey:@"completedDateKey"]];
+        
+        parentName = [[NSString alloc] initWithString:[aDecoder decodeObjectForKey:@"decodeKey"]];
     }
     
     return self;
@@ -97,5 +105,6 @@
     [aCoder encodeBool:completed forKey:@"completedKey"];
     [aCoder encodeObject:completedDate forKey:@"completedDateKey"];
     [aCoder encodeObject:description forKey:@"descriptionKey"];
+    [aCoder encodeObject:parentName forKey:@"decodeKey"];
 }
 @end

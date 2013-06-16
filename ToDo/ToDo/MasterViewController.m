@@ -32,8 +32,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    NSLog(@"Sup");
 	// Do any additional setup after loading the view, typically from a nib.
     //[self.editButtonItem setAction:@selector(changeValue)];
      self.navigationItem.leftBarButtonItem = self.editButtonItem;
@@ -45,7 +43,10 @@
     
     self.tableView.allowsSelectionDuringEditing = true;
     
-    self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+   // self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"BackTableview.png"]];
+    //[self.tableView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"BackTableview.png"]]];
+    
+   // self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -83,23 +84,39 @@
     ToDoList *temp = [[ToDoList alloc] init:@"New List" :[[NSMutableArray alloc] init] : @"Misc."];
 
     [[(MainNavigationViewController*)self.navigationController lists] addObject:temp];
+  
+    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow: [[(MainNavigationViewController*)self.navigationController lists] count] -3 inSection:1]] withRowAnimation:UITableViewRowAnimationAutomatic];
     
-    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow: [[(MainNavigationViewController*)self.navigationController lists] count] -1 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow: ([[(MainNavigationViewController*)self.navigationController lists]count] -1) inSection:0];
+    
+    
+    
+    //Figure out how to autoselect the list for editing
+    
+    [self setEditing:YES animated:NO];
+    [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+    //[self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
+    [self performSegueWithIdentifier:@"settingsList" sender:self];
+    
 }
 
 #pragma mark - Table View
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if( section == 0)
     {
+        return 2;
+    }
+    else if( section == 1)
+    {
        // [self.navigationController ]
-        return [[(MainNavigationViewController*)self.navigationController lists] count];
+        return [[(MainNavigationViewController*)self.navigationController lists] count ] - 2;
     }
     return 1; //_objects.count;
 }
@@ -110,7 +127,11 @@
     {
         return @"ToDoLists";
     }
-    else if(section == 1)
+    else if( section == 1)
+    {
+        return @"MyToDoLists";
+    }
+    else if(section == 2)
     {
         return @"Settings";
     }
@@ -124,13 +145,21 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    if( indexPath.section == 0)
+    if( (indexPath.section == 0))
     {
         cell.textLabel.text = [[NSString alloc] initWithString:[[[(MainNavigationViewController*)self.navigationController lists] objectAtIndex:indexPath.row] name] ];
         cell.detailTextLabel.text = [[NSString alloc] initWithString:[[[(MainNavigationViewController*)self.navigationController lists]objectAtIndex:indexPath.row] category] ];
         
-        cell.imageView.image = NULL;
+        cell.imageView.image = [UIImage imageNamed:@"list.png"];
         
+    }
+    else if(indexPath.section == 1)
+    {
+        cell.showsReorderControl = true;
+        cell.textLabel.text = [[NSString alloc] initWithString:[[[(MainNavigationViewController*)self.navigationController lists] objectAtIndex:indexPath.row + 2] name] ];
+        cell.detailTextLabel.text = [[NSString alloc] initWithString:[[[(MainNavigationViewController*)self.navigationController lists]objectAtIndex:indexPath.row + 2] category] ];
+        
+        cell.imageView.image = [UIImage imageNamed:@"list.png"];
     }
     else
     {
@@ -146,11 +175,12 @@
     
     if( indexPath.section == 0)
     {
-        if( indexPath.row != 0)
-        {
+        return NO;
+    }
+    else if( indexPath.section == 1)
+    {
         // Return NO if you do not want the specified item to be editable.
-            return YES;
-        }
+        return YES;
     }
     return NO;
 }
@@ -161,7 +191,7 @@
     {
         //int size = [[((MainNavigationViewController*)self.navigationController) lists] count];
         
-            [[(MainNavigationViewController*)self.navigationController lists] removeObjectAtIndex:indexPath.row];
+            [[(MainNavigationViewController*)self.navigationController lists] removeObjectAtIndex:indexPath.row + 2];
         
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
       //  [_objects removeObjectAtIndex:indexPath.row];
@@ -173,20 +203,29 @@
     }
 }
 
-/*
+
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
+    ToDoList *list = [[(MainNavigationViewController*)self.navigationController lists] objectAtIndex:fromIndexPath.row+2];
+    
+    [[(MainNavigationViewController*)self.navigationController lists] removeObject:list];
+    
+    [[(MainNavigationViewController*)self.navigationController lists] insertObject:list atIndex:toIndexPath.row + 2];
 }
-*/
 
-/*
+
+
 // Override to support conditional rearranging of the table view.
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if( indexPath.section == 1)
+    {
+        return YES;
+    }
     // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}*/
+    return NO;
+}
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -198,15 +237,22 @@
     }
     else
     {
-        if( indexPath.section == 0)
+        if (indexPath.section == 0)
         {
             if( self.tableView.isEditing)
             {
-                if(indexPath.row != 0)
-                {
-                    
-                   [self performSegueWithIdentifier:@"settingsList" sender:self];
-                }
+                [[self.tableView cellForRowAtIndexPath:indexPath] setSelected:NO];
+            }
+            else
+            {
+                [self performSegueWithIdentifier:@"mainList" sender:self];
+            }
+        }
+        if( indexPath.section == 1)
+        {
+            if( self.tableView.isEditing)
+            {
+                [self performSegueWithIdentifier:@"settingsList" sender:self];
             }
             else
             {
@@ -232,12 +278,27 @@
     else if( ([[segue identifier] isEqualToString:@"settingsList"]))
     {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        [((SettingsListViewController*)[segue destinationViewController]) setList:[[(MainNavigationViewController*)self.navigationController lists] objectAtIndex:indexPath.row]];
+        if(indexPath.section == 1)
+        {
+            [(ListViewController*)([segue destinationViewController]) setList:[[(MainNavigationViewController*)self.navigationController lists] objectAtIndex:indexPath.row + 2]];
+        }
+        else
+        {
+            [(ListViewController*)([segue destinationViewController]) setList:[[(MainNavigationViewController*)self.navigationController lists] objectAtIndex:indexPath.row]];
+        }
     }
     if([[segue identifier] isEqualToString:@"mainList"])
     {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        [(ListViewController*)([segue destinationViewController]) setList:[[(MainNavigationViewController*)self.navigationController lists] objectAtIndex:indexPath.row]];
+        
+        if(indexPath.section == 1)
+        {
+            [(ListViewController*)([segue destinationViewController]) setList:[[(MainNavigationViewController*)self.navigationController lists] objectAtIndex:indexPath.row + 2]];
+        }
+        else
+        {
+            [(ListViewController*)([segue destinationViewController]) setList:[[(MainNavigationViewController*)self.navigationController lists] objectAtIndex:indexPath.row]];
+        }
     }
 }
 
