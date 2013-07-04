@@ -13,7 +13,10 @@
 
 @property (strong, nonatomic) NSMutableArray *lists;
 
+@property (strong, nonatomic) UIViewController *rootlist;
+
 -(void) saveData;
 -(void) loadData;
+-(void) cleanUp;
 
 @end

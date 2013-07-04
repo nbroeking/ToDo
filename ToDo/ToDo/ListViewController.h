@@ -12,4 +12,6 @@
 @interface ListViewController : UITableViewController
 
 @property (strong, nonatomic) ToDoList *list;
+@property bool newItemNeedsEdit;
+
 @end

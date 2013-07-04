@@ -14,6 +14,7 @@
 @end
 
 @implementation ItemViewController
+@synthesize needsToEdit;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -33,7 +34,6 @@
 }
 -(void)setToDoItem:(ToDoItem *)itemt
 {
-    
     if( self.item != itemt)
     {
         self.item = itemt;
@@ -54,10 +54,23 @@
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-     self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    if( (self.item )&&(![self.item completed]))
+    {
+       self.navigationItem.rightBarButtonItem = self.editButtonItem; 
+    }
+    
+    //self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    if(self.needsToEdit)
+    {
+        self.needsToEdit = false;
+        //[self setEditing:YES animated:NO]; Edit this to have the screen auto change
+    }
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -70,6 +83,11 @@
 {
 //#warning Potentially incomplete method implementation.
     // Return the number of sections.
+    
+    if( (self.item)&&([self.item completed]))
+    {
+        return 2;
+    }
     return 3;
 }
 
@@ -80,6 +98,10 @@
     
     if( section == 1)
     {
+        if((self.item)&&([self.item completed]))
+        {
+            return 3;
+        }
         return 2;
     }
     return 1;
@@ -119,11 +141,19 @@
                 cell.textLabel.text = @"Completed: No";
             }
         }
+        else if( indexPath.row == 2)
+        {
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            NSDateFormatter *format = [[NSDateFormatter alloc] init];
+            [format setDateFormat:@"MMM dd YYYY"];
+            
+            cell.textLabel.text = [[NSString alloc] initWithFormat:@"Completed On: %@", [format stringFromDate:[self.item completedDate]]];
+        }
         else
         {
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             NSDateFormatter *format = [[NSDateFormatter alloc] init];
-            [format setDateFormat:@"MMM dd YY at hh : mm"];
+            [format setDateFormat:@"MMM dd YYYY"];
             
             cell.textLabel.text = [[NSString alloc] initWithFormat:@"Created On: %@", [format stringFromDate:[self.item startDate]]];
         }
@@ -160,7 +190,7 @@
     if(section == 0)
     {
         //view.backgroundColor = [UIColor blackColor];
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 280, 100)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(100, 0, 180, 100)];
         
         [label setTextAlignment:NSTextAlignmentCenter];
         [label setTextColor:[UIColor blackColor]];
@@ -198,6 +228,7 @@
     
     if(editing == true)
     {
+        needsToEdit = false;
         [self performSegueWithIdentifier:@"editItem" sender:self];
     }
 }
@@ -225,9 +256,6 @@
 -(void) checkmark: (id)sender
 {
     // Set the checkmark
-    [self.tableView reloadData];
-    
-    
     if( ![self.item completed])
     {
     [self.item setCompleted:true];
@@ -251,6 +279,9 @@
         
     }
     }
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    [self.tableView reloadData];
 }
 /*
 // Override to support rearranging the table view.

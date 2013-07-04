@@ -13,8 +13,8 @@
 
 @property (strong, nonatomic) ToDoItem *item;
 
+@property bool needsToEdit;
 
 @property (weak, nonatomic) UIImageView *image;
 -(void) setToDoItem:(ToDoItem *)itemt;
-
 @end

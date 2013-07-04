@@ -18,4 +18,5 @@
 
 -(void) saveData;
 -(void) loadData;
+-(void) cleanUp;
 @end

@@ -8,6 +8,8 @@
 
 #import "SettingsListViewController.h"
 #import "MainNavigationViewController.h"
+#import "MainSplitViewController.h"
+#import "IpadFirstViewController.h"
 
 @interface SettingsListViewController ()
 
@@ -17,13 +19,13 @@
 @synthesize list;
 @synthesize categorys;
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (void)awakeFromNib
 {
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        self.clearsSelectionOnViewWillAppear = NO;
+        self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
     }
-    return self;
+    [super awakeFromNib];
 }
 
 - (void)viewDidLoad
@@ -105,6 +107,11 @@
     {
         [[[list list] objectAtIndex:i]setParentName:textField.text];
     }
+    
+    if( [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+    {
+        //[((IpadFirstViewController*)[((MainSplitViewController*)self.splitViewController).viewControllers objectAtIndex:0]).table reloadData];
+    }
     //Set the information
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -123,14 +130,18 @@
             cell.detailTextLabel.text = @"";
             
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            UITextField *ageField = [[UITextField alloc] initWithFrame:CGRectMake(80, 10, 220, 30)];
-            ageField.tag = indexPath.row;
-            ageField.keyboardType = UIKeyboardTypeDefault;
-            ageField.placeholder = [[NSString alloc] initWithString:[list name]];
-            [ageField setReturnKeyType:UIReturnKeyDone];
-            [ageField addTarget:self action:@selector(endKeyboard:) forControlEvents:UIControlEventEditingDidEndOnExit];
-            [ageField setDelegate:self];
-            [cell addSubview:ageField];        // Add TextFields
+            
+            if( [cell.subviews count] < 4)
+            {
+                UITextField *ageField = [[UITextField alloc] initWithFrame:CGRectMake(80, 10, 220, 30)];
+                ageField.tag = indexPath.row;
+                ageField.keyboardType = UIKeyboardTypeDefault;
+                ageField.placeholder = [[NSString alloc] initWithString:[list name]];
+                [ageField setReturnKeyType:UIReturnKeyDone];
+                [ageField addTarget:self action:@selector(endKeyboard:) forControlEvents:UIControlEventEditingDidEndOnExit];
+                [ageField setDelegate:self];
+                [cell addSubview:ageField];        // Add TextFields
+            }
         }
         else
         {
