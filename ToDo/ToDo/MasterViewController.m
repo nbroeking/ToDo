@@ -141,7 +141,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 2; //Fix
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -196,7 +196,14 @@
             cell.textLabel.text = [[NSString alloc] initWithString:[[[(MainNavigationViewController*)self.navigationController lists] objectAtIndex:indexPath.row] name] ];
             cell.detailTextLabel.text = [[NSString alloc] initWithString:[[[(MainNavigationViewController*)self.navigationController lists]objectAtIndex:indexPath.row] category] ];
         
+        if(indexPath.row == 0)
+        {
             cell.imageView.image = [UIImage imageNamed:@"list.png"];
+        }
+        else
+        {
+            cell.imageView.image = [UIImage imageNamed:@"list.png"];
+        }
         //}
         //else
         //{

@@ -196,11 +196,17 @@
     
     // Configure the cell...
     cell.showsReorderControl = true;
-    cell.imageView.image = [UIImage imageNamed:@"item.png"];
+    
     cell.textLabel.text =[[ NSString alloc] initWithString:[[[list list] objectAtIndex:indexPath.row] name]];
 
-    cell.detailTextLabel.text = [[NSString alloc] initWithString: [[[list list] objectAtIndex:indexPath.row] parentName]];
     
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    
+    [format setDateFormat:@"MMM dd yyyy hh:mm a"];
+    
+    cell.detailTextLabel.text = [[NSString alloc] initWithString: [format stringFromDate:[[[list list] objectAtIndex:indexPath.row] startDate]]];
+    
+    [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     return cell;
 }
 

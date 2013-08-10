@@ -13,6 +13,7 @@
 
 
 @property (strong, nonatomic) ToDoItem *item;
+@property (strong, nonatomic) UITextField* field;
 
 -(void) setToDoItem:(ToDoItem *)itemt;
 

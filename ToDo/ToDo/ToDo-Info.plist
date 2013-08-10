@@ -14,8 +14,10 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
-				<string>ToDo.png</string>
-				<string>ToDo@2x.png</string>
+				<string>ToDoIcon.png</string>
+				<string>ToDoIcon@2x.png</string>
+				<string>ToDoIconIPad.png</string>
+				<string>ToDoIconIPad@2x.png</string>
 			</array>
 		</dict>
 	</dict>

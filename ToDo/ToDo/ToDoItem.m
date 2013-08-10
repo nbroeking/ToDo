@@ -94,6 +94,7 @@
         [self setCompletedDate:[aDecoder decodeObjectForKey:@"completedDateKey"]];
         
         parentName = [[NSString alloc] initWithString:[aDecoder decodeObjectForKey:@"decodeKey"]];
+        
     }
     
     return self;

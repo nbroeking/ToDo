@@ -14,9 +14,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //NSLog(@"Start");
     // Override point for customization after application launch.
-   
-    
     // Sets the setting defaults
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
@@ -41,21 +40,31 @@
     
     //Get settings and clean up
     
-    
     return YES;
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
+    //NSLog(@"willReignActive");
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+   /* NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-  
-        [(MainNavigationViewController*)self.window.rootViewController saveData];
+    NSDictionary *appDefaults = [NSDictionary dictionaryWithObject:@"NO" forKey:@"cleanUp"];
+    
+    BOOL def = [defaults boolForKey:@"cleanUp"];
+    
+    if(def)
+    {
+        [MainController cleanUp];
+        [MainController saveData];
+    }
+    [(MainNavigationViewController*)self.window.rootViewController saveData];*/
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
+    //NSLog(@"Did Enter Background");
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
    
@@ -66,11 +75,14 @@
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
   
-        [(MainNavigationViewController*)self.window.rootViewController loadData];
+    //NSLog(@"Will Enter Forground");
+    
+    [(MainNavigationViewController*)self.window.rootViewController loadData];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     BOOL clean = [defaults boolForKey:@"cleanUp"];
+    
     
     if(clean)
     {
@@ -81,8 +93,9 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
+    //NSLog(@"Did Become Active");
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
- /*   if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+   /*if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
     {
         [(MainSplitViewController*)self.window.rootViewController loadData];
     }
@@ -96,6 +109,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
+    //NSLog(@"Will Terminate");
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 
     [(MainNavigationViewController*)self.window.rootViewController saveData];

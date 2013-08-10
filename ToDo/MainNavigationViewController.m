@@ -9,6 +9,7 @@
 #import "MainNavigationViewController.h"
 #import "MasterViewController.h"
 
+
 @interface MainNavigationViewController ()
 @end
 
@@ -59,16 +60,17 @@
 
 -(void)saveData
 {
-    [NSKeyedArchiver archiveRootObject:lists toFile:[self archivePath]];
+        [NSKeyedArchiver archiveRootObject:lists toFile:[self archivePath]];      
 }
 -(void) loadData
 {
-    NSMutableArray *temp = [[NSKeyedUnarchiver unarchiveObjectWithFile:[self archivePath]] mutableCopy];
+ 
+        NSMutableArray *temp = [[NSKeyedUnarchiver unarchiveObjectWithFile:[self archivePath]] mutableCopy];
     
-    if( temp)
-    {
-        lists = [[NSMutableArray alloc] initWithArray:temp];
-    }
+        if( temp && !lists)
+        {
+            lists = [[NSMutableArray alloc] initWithArray:temp];
+        }
 }
 -(void)cleanUp
 {
@@ -79,7 +81,7 @@
         
         NSDate* now = [[NSDate alloc] init];
         
-        NSDate *fiveDaysAgo = [now dateByAddingTimeInterval:-10*24*60*60];
+        NSDate *fiveDaysAgo = [now dateByAddingTimeInterval:-7*24*60*60];
         
         if( [appComplete compare:fiveDaysAgo] == NSOrderedAscending)
         {

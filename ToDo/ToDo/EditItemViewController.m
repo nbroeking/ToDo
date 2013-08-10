@@ -29,6 +29,9 @@
 
     self.title = @"Edit ToDo";
     
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self.navigationItem setHidesBackButton:YES];
+    [self setEditing:YES animated:NO];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -39,13 +42,34 @@
     //[self setEditing:YES animated:NO];
     
 }
+-(void)cancelt
+{
+    if( [[self.item name] isEqualToString:@"ToDo"])
+    {
+        for( int i = 0; i < [[(MainNavigationViewController*)self.navigationController lists] count]; i++)
+        {
+            [[[[(MainNavigationViewController*)self.navigationController lists] objectAtIndex:i] list ]removeObject:self.item];
+        }
+    
+        [self.navigationController popToViewController:[(MainNavigationViewController*)self.navigationController rootlist] animated:YES];
+    }
+    else
+    {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
 
+-(void)donet
+{
+    [self setEditing:NO animated:YES];
+}
 -(void)setEditing:(BOOL)editing animated:(BOOL)animated
 {
     [super setEditing:editing animated:animated];
     
     if( editing == false)
     {
+        [self.field resignFirstResponder];
         [self.navigationController popViewControllerAnimated:YES];
     }
 }
@@ -78,7 +102,14 @@
 
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {
-    [self.item setName:[[NSString alloc] initWithString:textField.text]];
+    if( [textField.text length] == 0)
+    {
+        [self.item setName:@"ToDo"];
+    }
+    else
+    {
+        [self.item setName:[[NSString alloc] initWithString:textField.text]];
+    }
 }
 -(void)killF:(id)sender
 {
@@ -104,12 +135,24 @@
     {
         if( [cell.subviews count] < 4)
         {
-            UITextField *field = [[UITextField alloc] initWithFrame:CGRectMake(80, 12, 215, 30)];
+            UITextField *field;
+            if( [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
+            {
+                field = [[UITextField alloc] initWithFrame:CGRectMake(80, 12, 220, 30)];
+            }
+            else
+            {
+                field = [[UITextField alloc] initWithFrame:CGRectMake(120, 18, 600, 50)];
+            }
+            
             
             field.text = [[NSString alloc] initWithString:[self.item name]];
             field.tag = 0;
             [field setDelegate:self];
             [field setReturnKeyType:UIReturnKeyDone];
+            field.clearsOnBeginEditing = YES;
+            self.field = field;
+            [field setKeyboardType:UIKeyboardTypeDefault];
             [field addTarget:self action:@selector(killF:) forControlEvents:UIControlEventEditingDidEndOnExit];
             [cell addSubview:field];
         }
@@ -146,7 +189,21 @@
     
     return cell;
 }
-
+/*-(void)textFieldTextEdit: (id)sender
+{
+    if( self.field)
+    {
+        if([[self.field text] length] == 0)
+        {
+            self.navigationItem.leftBarButtonItem = self.editButtonItem;
+        }
+        else if( [[self.field text] length] == 1)
+        {
+            self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelt)];
+            
+        }
+    }
+}*/
 
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -163,7 +220,7 @@
     }
     else if( section == 1)
     {
-        return @"Select what list this belongs too";
+        return @"Parent List";
     }
     else
     {
@@ -174,7 +231,7 @@
 {
     if( section == 1)
     {
-        return @"All ToDoItems will show up in the All list. If that is the only list you want your item to show up in select all. Otherwise select what addtional list you would like your ToDoItem in.";
+        return @"Select what list this item belongs to.";
     }
     else
     {

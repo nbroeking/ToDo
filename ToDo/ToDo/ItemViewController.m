@@ -167,7 +167,7 @@
 {
     if( section == 2)
     {
-        return @"Press to complete the ToDoItem. Once pressed there is no way to uncomplete.";
+        return @"Press to complete the ToDoItem.";
     }
     else
     {
@@ -176,9 +176,19 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if( section == 0)
+    if( [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
     {
-        return 100;
+        if( section == 0)
+        {
+            return 100;
+        }
+    }
+    else
+    {
+        if( section == 0)
+        {
+            return 150;
+        }
     }
     return UITableViewAutomaticDimension;
 }
@@ -189,32 +199,62 @@
     //view.backgroundColor = [UIColor blackColor];
     if(section == 0)
     {
-        //view.backgroundColor = [UIColor blackColor];
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(100, 0, 180, 100)];
-        
-        [label setTextAlignment:NSTextAlignmentCenter];
-        [label setTextColor:[UIColor blackColor]];
-        [label setBackgroundColor:[UIColor clearColor]];
-        [label setFont:[UIFont boldSystemFontOfSize:17]];
-    
-        label.text = [[NSString alloc] initWithString:[ self.item name]];
-        
-    UIImageView *temp = [[UIImageView alloc] initWithFrame:CGRectMake(20, 20, 60, 60)];
-        
-        if( [self.item completed])
+        if([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
         {
-            [temp setImage:[UIImage imageNamed:@"CheckIcon.png"]];
+            //view.backgroundColor = [UIColor blackColor];
+            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(100, 0, 180, 100)];
+        
+            [label setTextAlignment:NSTextAlignmentCenter];
+            [label setTextColor:[UIColor blackColor]];
+            [label setBackgroundColor:[UIColor clearColor]];
+            [label setFont:[UIFont boldSystemFontOfSize:17]];
+    
+            label.text = [[NSString alloc] initWithString:[ self.item name]];
+        
+            UIImageView *temp = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 80, 80)];
+        
+            if( [self.item completed])
+            {
+                [temp setImage:[UIImage imageNamed:@"CheckIcon.png"]];
+            }
+            else
+            {
+                [temp setImage:[UIImage imageNamed:@"itemIcon.png"]];
+            }
+    
+            [view addSubview: temp];
+    
+            [view addSubview:label];
+        
+            self.image = temp;
         }
         else
         {
-            [temp setImage:[UIImage imageNamed:@"itemIcon.png"]];
-        }
-    
-    [view addSubview: temp];
-    
-        [view addSubview:label];
-        
-        self.image = temp;
+            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(150, 0, 580, 150)];
+            
+            [label setTextAlignment:NSTextAlignmentCenter];
+            [label setTextColor:[UIColor blackColor]];
+            [label setBackgroundColor:[UIColor clearColor]];
+            [label setFont:[UIFont boldSystemFontOfSize:25]];
+            
+            label.text = [[NSString alloc] initWithString:[ self.item name]];
+            
+            UIImageView *temp = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 120, 120)];
+            
+            if( [self.item completed])
+            {
+                [temp setImage:[UIImage imageNamed:@"CheckIcon.png"]];
+            }
+            else
+            {
+                [temp setImage:[UIImage imageNamed:@"itemIcon.png"]];
+            }
+            
+            [view addSubview: temp];
+            
+            [view addSubview:label];
+            
+            self.image = temp;        }
        // [label addSubview:[UIImage imageNamed:@"item.png"]];
     }
     

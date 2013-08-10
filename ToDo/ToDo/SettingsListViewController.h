@@ -13,4 +13,5 @@
 
 @property (strong, nonatomic) ToDoList *list;
 @property (strong, nonatomic) NSMutableArray *categorys;
+@property (weak, nonatomic) UITextField *field;
 @end

@@ -10,13 +10,13 @@
 			<key>Title</key>
 			<string>Clean Up</string>
 			<key>FooterText</key>
-			<string>Have ToDo delete all completed items after 5 days.</string>
+			<string>Delete completed items after 7 days.</string>
 		</dict>
 		<dict>
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
-			<string>Clean up after 5 days</string>
+			<string>Clean up after 7 days</string>
 			<key>Key</key>
 			<string>cleanUp</string>
 			<key>DefaultValue</key>
@@ -25,8 +25,6 @@
 			<true/>
 			<key>FalseValue</key>
 			<string>NO</string>
-			<key>FooterText</key>
-			<string>Hello</string>
 		</dict>
 	</array>
 	<key>StringsTable</key>

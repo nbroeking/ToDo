@@ -35,6 +35,10 @@
     self.title = [[NSString alloc] initWithString:[list name]];
     
     categorys = [[NSMutableArray alloc] initWithArray:@[@"Misc.", @"Productivity", @"Work", @"Groceries", @"Personal", @"Shopping"]];
+    
+    [self.navigationItem setHidesBackButton:YES];
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self setEditing:YES animated:NO];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -57,6 +61,16 @@
     return 2;
 }
 
+-(void)setEditing:(BOOL)editing animated:(BOOL)animated
+{
+    [super setEditing:editing animated:animated];
+    
+    if(editing == false)
+    {
+        [self.field resignFirstResponder];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 //#warning Incomplete method implementation.
@@ -100,7 +114,8 @@
 
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {
-    
+    if( [textField.text length] > 0)
+    {
     [list setName:textField.text];
     
     for(int i = 0; i < [[list list] count]; i++)
@@ -113,6 +128,16 @@
         //[((IpadFirstViewController*)[((MainSplitViewController*)self.splitViewController).viewControllers objectAtIndex:0]).table reloadData];
     }
     //Set the information
+    }
+    else
+    {
+        [list setName:@"ToDoList"];
+        
+        for(int i = 0; i < [[list list] count]; i++)
+        {
+            [[[list list] objectAtIndex:i]setParentName:@"ToDoList"];
+        }
+    }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -133,10 +158,20 @@
             
             if( [cell.subviews count] < 4)
             {
-                UITextField *ageField = [[UITextField alloc] initWithFrame:CGRectMake(80, 10, 220, 30)];
+                UITextField *ageField;
+                if( [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
+                {
+                    ageField = [[UITextField alloc] initWithFrame:CGRectMake(80, 12, 220, 30)];
+                }
+                else
+                {
+                    ageField = [[UITextField alloc] initWithFrame:CGRectMake(120, 18, 600, 50)];
+                }
                 ageField.tag = indexPath.row;
                 ageField.keyboardType = UIKeyboardTypeDefault;
-                ageField.placeholder = [[NSString alloc] initWithString:[list name]];
+                ageField.text = [[NSString alloc] initWithString:[list name]];
+                self.field = ageField;
+                ageField.clearsOnBeginEditing = YES;
                 [ageField setReturnKeyType:UIReturnKeyDone];
                 [ageField addTarget:self action:@selector(endKeyboard:) forControlEvents:UIControlEventEditingDidEndOnExit];
                 [ageField setDelegate:self];
@@ -180,14 +215,14 @@
     return cell;
 }
 
-/*
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return NO;
 }
-*/
+
 
 /*
 // Override to support editing the table view.
