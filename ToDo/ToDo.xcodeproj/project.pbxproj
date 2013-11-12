@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		560A34FA1819CD8E002A69F7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 560A34F71819CD8E002A69F7 /* Default.png */; };
+		560A34FB1819CD8E002A69F7 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 560A34F81819CD8E002A69F7 /* Default@2x.png */; };
+		560A34FC1819CD8E002A69F7 /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 560A34F91819CD8E002A69F7 /* Default~iphone.png */; };
 		562A4FA3173B0BF300E652D9 /* SettingsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 562A4FA2173B0BF300E652D9 /* SettingsListViewController.m */; };
 		562EEFCE1727772200251985 /* MainNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 562EEFCD1727772200251985 /* MainNavigationViewController.m */; };
 		56340AF51726E9CE00D98EF7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56340AF41726E9CE00D98EF7 /* UIKit.framework */; };
@@ -27,25 +30,14 @@
 		563A2E0D179115F1009EBBCA /* CheckIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 563A2E0A179115F1009EBBCA /* CheckIcon.png */; };
 		563A2E0F179115F1009EBBCA /* itemIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 563A2E0C179115F1009EBBCA /* itemIcon.png */; };
 		56520FCB175C17DA00EE4CA2 /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56520FCA175C17D900EE4CA2 /* ItemViewController.m */; };
-		565B9F001793478A00840ABB /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 565B9EFF1793478A00840ABB /* Default-Portrait~ipad.png */; };
-		565B9F021793479300840ABB /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 565B9F011793479300840ABB /* Default-Landscape~ipad.png */; };
-		565B9F041793479600840ABB /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 565B9F031793479600840ABB /* Default-Landscape@2x~ipad.png */; };
-		565B9F061793479900840ABB /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 565B9F051793479900840ABB /* Default-Portrait@2x~ipad.png */; };
 		567688DE176E05AA0022E9ED /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 567688DD176E05AA0022E9ED /* Settings.bundle */; };
 		56A4D4061738158500CCDE87 /* ToDoList.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A4D4051738158500CCDE87 /* ToDoList.m */; };
-		56A753DB1791FCA2000F4221 /* ToDoIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 56A753DA1791FCA2000F4221 /* ToDoIcon.png */; };
-		56A753DD1791FCA5000F4221 /* ToDoIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 56A753DC1791FCA5000F4221 /* ToDoIcon@2x.png */; };
-		56A753DF1791FCB5000F4221 /* ToDoIconIPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 56A753DE1791FCB5000F4221 /* ToDoIconIPad.png */; };
-		56A753E11791FCB8000F4221 /* ToDoIconIPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 56A753E01791FCB8000F4221 /* ToDoIconIPad@2x.png */; };
-		56A753EB1791FE63000F4221 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 56A753EA1791FE63000F4221 /* Default-568h@2x.png */; };
-		56A753EC1791FE69000F4221 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 56A753E81791FDFD000F4221 /* Default@2x.png */; };
-		56A753EF1791FEAF000F4221 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 56A753EE1791FEAF000F4221 /* Default.png */; };
 		56A753F31792062A000F4221 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = 56A753F21792062A000F4221 /* list.png */; };
 		56AC46AD1739C68900A8A81C /* settings_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 56AC46AC1739C68900A8A81C /* settings_button.png */; };
 		56AC46B21739D10000A8A81C /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56AC46B11739D10000A8A81C /* ListViewController.m */; };
 		56B9A05C17304C4300D482E6 /* ToDoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 56B9A05B17304C4300D482E6 /* ToDoItem.m */; };
 		56D2F446176D3E1E0071973A /* EditItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D2F445176D3E1E0071973A /* EditItemViewController.m */; };
-		56FBB743179F66620030B6FA /* completeList.png in Resources */ = {isa = PBXBuildFile; fileRef = 56FBB742179F66620030B6FA /* completeList.png */; };
+		56FE09DE1819D410008D3799 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56FE09DD1819D410008D3799 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +51,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		560A34F71819CD8E002A69F7 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		560A34F81819CD8E002A69F7 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		560A34F91819CD8E002A69F7 /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~iphone.png"; sourceTree = "<group>"; };
 		562A4FA1173B0BF300E652D9 /* SettingsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsListViewController.h; sourceTree = "<group>"; };
 		562A4FA2173B0BF300E652D9 /* SettingsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsListViewController.m; sourceTree = "<group>"; };
 		562EEFCC1727772200251985 /* MainNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainNavigationViewController.h; path = ../MainNavigationViewController.h; sourceTree = "<group>"; };
@@ -89,20 +84,9 @@
 		563A2E0C179115F1009EBBCA /* itemIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = itemIcon.png; path = ToDo/itemIcon.png; sourceTree = "<group>"; };
 		56520FC9175C17D900EE4CA2 /* ItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemViewController.h; sourceTree = "<group>"; };
 		56520FCA175C17D900EE4CA2 /* ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemViewController.m; sourceTree = "<group>"; };
-		565B9EFF1793478A00840ABB /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
-		565B9F011793479300840ABB /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
-		565B9F031793479600840ABB /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
-		565B9F051793479900840ABB /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
 		567688DD176E05AA0022E9ED /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		56A4D4041738158500CCDE87 /* ToDoList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoList.h; sourceTree = "<group>"; };
 		56A4D4051738158500CCDE87 /* ToDoList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoList.m; sourceTree = "<group>"; };
-		56A753DA1791FCA2000F4221 /* ToDoIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ToDoIcon.png; sourceTree = "<group>"; };
-		56A753DC1791FCA5000F4221 /* ToDoIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ToDoIcon@2x.png"; sourceTree = "<group>"; };
-		56A753DE1791FCB5000F4221 /* ToDoIconIPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ToDoIconIPad.png; sourceTree = "<group>"; };
-		56A753E01791FCB8000F4221 /* ToDoIconIPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ToDoIconIPad@2x.png"; sourceTree = "<group>"; };
-		56A753E81791FDFD000F4221 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		56A753EA1791FE63000F4221 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		56A753EE1791FEAF000F4221 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		56A753F21792062A000F4221 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
 		56AC46AC1739C68900A8A81C /* settings_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings_button.png; sourceTree = "<group>"; };
 		56AC46B01739D10000A8A81C /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
@@ -112,7 +96,7 @@
 		56D2F444176D3E1E0071973A /* EditItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditItemViewController.h; sourceTree = "<group>"; };
 		56D2F445176D3E1E0071973A /* EditItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditItemViewController.m; sourceTree = "<group>"; };
 		56FADBC01784F91D009BE9BA /* ToDo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ToDo.entitlements; sourceTree = "<group>"; };
-		56FBB742179F66620030B6FA /* completeList.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = completeList.png; sourceTree = "<group>"; };
+		56FE09DD1819D410008D3799 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,22 +126,13 @@
 		56340AE81726E9CE00D98EF7 = {
 			isa = PBXGroup;
 			children = (
-				565B9F051793479900840ABB /* Default-Portrait@2x~ipad.png */,
-				565B9F031793479600840ABB /* Default-Landscape@2x~ipad.png */,
-				565B9F011793479300840ABB /* Default-Landscape~ipad.png */,
-				565B9EFF1793478A00840ABB /* Default-Portrait~ipad.png */,
-				56A753EE1791FEAF000F4221 /* Default.png */,
-				56A753EA1791FE63000F4221 /* Default-568h@2x.png */,
-				56A753E81791FDFD000F4221 /* Default@2x.png */,
-				56A753E01791FCB8000F4221 /* ToDoIconIPad@2x.png */,
-				56A753DE1791FCB5000F4221 /* ToDoIconIPad.png */,
-				56A753DC1791FCA5000F4221 /* ToDoIcon@2x.png */,
-				56A753DA1791FCA2000F4221 /* ToDoIcon.png */,
-				56FBB742179F66620030B6FA /* completeList.png */,
 				567688DD176E05AA0022E9ED /* Settings.bundle */,
 				563A2E0A179115F1009EBBCA /* CheckIcon.png */,
 				563A2E0C179115F1009EBBCA /* itemIcon.png */,
 				56A753F21792062A000F4221 /* list.png */,
+				560A34F71819CD8E002A69F7 /* Default.png */,
+				560A34F81819CD8E002A69F7 /* Default@2x.png */,
+				560A34F91819CD8E002A69F7 /* Default~iphone.png */,
 				56340AFA1726E9CE00D98EF7 /* ToDo */,
 				56340B241726E9CF00D98EF7 /* ToDoTests */,
 				56340AF31726E9CE00D98EF7 /* Frameworks */,
@@ -197,6 +172,7 @@
 				56B9A05917304BA800D482E6 /* Items */,
 				56340B0C1726E9CE00D98EF7 /* MainStoryboard_iPhone.storyboard */,
 				56340B0F1726E9CE00D98EF7 /* MainStoryboard_iPad.storyboard */,
+				56FE09DD1819D410008D3799 /* Images.xcassets */,
 				56340AFB1726E9CE00D98EF7 /* Supporting Files */,
 			);
 			path = ToDo;
@@ -334,6 +310,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				560A34FC1819CD8E002A69F7 /* Default~iphone.png in Resources */,
 				56340AFF1726E9CE00D98EF7 /* InfoPlist.strings in Resources */,
 				56340B0E1726E9CE00D98EF7 /* MainStoryboard_iPhone.storyboard in Resources */,
 				56340B111726E9CE00D98EF7 /* MainStoryboard_iPad.storyboard in Resources */,
@@ -341,19 +318,10 @@
 				567688DE176E05AA0022E9ED /* Settings.bundle in Resources */,
 				563A2E0D179115F1009EBBCA /* CheckIcon.png in Resources */,
 				563A2E0F179115F1009EBBCA /* itemIcon.png in Resources */,
-				56A753DB1791FCA2000F4221 /* ToDoIcon.png in Resources */,
-				56A753DD1791FCA5000F4221 /* ToDoIcon@2x.png in Resources */,
-				56A753DF1791FCB5000F4221 /* ToDoIconIPad.png in Resources */,
-				56A753E11791FCB8000F4221 /* ToDoIconIPad@2x.png in Resources */,
-				56A753EB1791FE63000F4221 /* Default-568h@2x.png in Resources */,
-				56A753EC1791FE69000F4221 /* Default@2x.png in Resources */,
-				56A753EF1791FEAF000F4221 /* Default.png in Resources */,
+				560A34FA1819CD8E002A69F7 /* Default.png in Resources */,
+				56FE09DE1819D410008D3799 /* Images.xcassets in Resources */,
+				560A34FB1819CD8E002A69F7 /* Default@2x.png in Resources */,
 				56A753F31792062A000F4221 /* list.png in Resources */,
-				565B9F001793478A00840ABB /* Default-Portrait~ipad.png in Resources */,
-				565B9F021793479300840ABB /* Default-Landscape~ipad.png in Resources */,
-				565B9F041793479600840ABB /* Default-Landscape@2x~ipad.png in Resources */,
-				565B9F061793479900840ABB /* Default-Portrait@2x~ipad.png in Resources */,
-				56FBB743179F66620030B6FA /* completeList.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,6 +485,8 @@
 		56340B301726E9CF00D98EF7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = ToDo/ToDo.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ToDo/ToDo-Prefix.pch";
@@ -531,6 +501,8 @@
 		56340B311726E9CF00D98EF7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = ToDo/ToDo.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ToDo/ToDo-Prefix.pch";
