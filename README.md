@@ -1,39 +1,9 @@
 ToDo
 ====
 
-First Release
--------------
+This project is created and written by Nicolas C. Broeking.
+It is copyrighted and can not be used by anyone without permission from Nic Broeking.
 
-###Phase1: SetUp <br>
+This app is in the apple app store and can be viewed at https://itunes.apple.com/sr/app/todo-a-personal-todo-list/id673533266?mt=8
 
--[x] Add files to repo <br>
--[x] Create project <br>
--[ ] Set up app at itunes connect <br>
-
-###Phase 2: core Setup<br>
-
--[x] Design the structure <br>
--[x] Write the main objects structure <br>
--[ ] Design the Interfaces Graphics
--[x] Design the Interfaces
-
-###Phase 3: Iphone Gui<br>
-
--[ ] Write the view Controllers <br>
-
-###Phase 4: IPad Gui<br>
-
--[ ] Write the view Controllers <br>
-
-
-###Phase 5: Testing <br>
-
--[ ] Test everything <br>
--[ ] Release version 1.5 with bug fixes <br>
-
-Seccond Release
----------------
-
-###Phase 1: Incorperate Icloud<br>
-
-
+This code can not be used without permission. 
