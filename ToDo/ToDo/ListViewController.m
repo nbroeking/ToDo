@@ -12,6 +12,7 @@
 #import "EditItemViewController.h"
 #import "IpadFirstViewController.h"
 #import "ItemEditIpadViewController.h"
+#import "SettingsListViewController.h"
 
 @interface ListViewController ()
 
@@ -34,14 +35,8 @@
 {
     [super viewDidLoad];
 
-    //if( [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
-   // {
-        [(MainNavigationViewController*)self.navigationController setRootlist:self];
-  /*  }
-    else
-    {
-        [(MainSplitViewController*)self.splitViewController setRootlist:self];
-    }*/
+    [(MainNavigationViewController*)self.navigationController setRootlist:self];
+
     
     [self setTitle:[[NSString alloc] initWithString:[list name]]];
     
@@ -50,29 +45,34 @@
     
     self.title = [[NSString alloc ] initWithString:list.name ];
     
-    if(!([[list name] isEqualToString:@"Completed"]))
+    UIBarButtonItem * button =  [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(edit)];
+    button.style=UIBarButtonSystemItemEdit;
+    
+    
+    if(!([[list name] isEqualToString:@"Completed"])&&(!([[list name] isEqualToString:@"All"])))
     {
         UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     
-        
-        self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects: addButton, self.editButtonItem, nil];
+        self.navigationItem.rightBarButtonItems = [[NSMutableArray alloc] initWithObjects: addButton, button, nil];
     }
     else
     {
-        self.navigationItem.rightBarButtonItem = self.editButtonItem;
+        self.navigationItem.rightBarButtonItems = [[NSMutableArray alloc] initWithObjects: nil];
     }
-    
-    self.tableView.allowsSelectionDuringEditing = YES;
+    //self.tableView.allowsSelectionDuringEditing = YES;
     // Uncomment the following line to preserve selection between presentations.
      //self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    /*
+        UIBarButtonItem * button =  [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(edit)];
+        [(NSMutableArray*)self.navigationItem.rightBarButtonItems addObject: button];
+        button.style=UIBarButtonSystemItemEdit;
+    */
     if( self.list)
     {
-       // if( [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
-        //{
             MainNavigationViewController* main = (MainNavigationViewController*)self.navigationController;
             
             for( int i = 0; i < [[[[main lists] objectAtIndex:0] list]count]; i++)
@@ -86,29 +86,12 @@
                     }
                 }
             }
-       /* }
-        else
-        {
-            MainSplitViewController* main = (MainSplitViewController*)self.splitViewController;
-            
-            for( int i = 0; i < [[[[main lists] objectAtIndex:0] list]count]; i++)
-            {
-                // NSLog(@"Searching");
-                if([[[[[[main lists] objectAtIndex:0] list] objectAtIndex:i] parentName] isEqualToString:[self.list name]])
-                {
-                    if( !([[self.list list] containsObject:[[[[main lists] objectAtIndex:0] list] objectAtIndex:i]]))
-                    {
-                        [[self.list list] addObject:[[[[main lists] objectAtIndex:0] list] objectAtIndex:i]];
-                    }
-                }
-            }
-        }*/
     }
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    
+    [self setTitle:[[NSString alloc] initWithString:[list name]]];
     [self setEditing:NO animated:YES];
     [self.tableView reloadData];
 }
@@ -123,8 +106,6 @@
 
 -(void) insertNewObject: (id)sender
 {
-   // if([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
-    //{
         ToDoItem *temp = [[ToDoItem alloc] init:@"ToDo" :[[NSDate alloc] init] :false :@"I need to complete this ToDo." :NULL:[list name]];
     
         [[list list] addObject:temp];
@@ -144,37 +125,7 @@
     
         [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
         [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
-    //}
-    /*else
-    {
-        ToDoItem *temp = [[ToDoItem alloc] init:@"ToDo" :[[NSDate alloc] init] :false :@"I need to complete this ToDo." :NULL:[list name]];
-        
-        [[list list] addObject:temp];
-        
-        if( list != [[(MainSplitViewController*)self.splitViewController lists] objectAtIndex:0])
-        {
-            [[[[(MainSplitViewController*)self.splitViewController lists] objectAtIndex:0] list ]addObject:temp];
-        }
-        
-        [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow: ([[list list]count] -1) inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
-        
-        // [self tableView:[self tableView] didDeselectRowAtIndexPath:[NSIndexPath indexPathForRow: ([[list list]count] -2) inSection:0]];
-        
-        [self setNewItemNeedsEdit:YES];
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow: ([[list list]count] -1) inSection:0];
-        
-        
-        [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
-        
-        
-      [[(IpadFirstViewController*)([[((MainSplitViewController*)self.splitViewController).viewControllers lastObject] topViewController]) masterPopoverController] dismissPopoverAnimated:YES];
-        [[[((MainSplitViewController*)self.splitViewController ).viewControllers lastObject] topViewController ]performSegueWithIdentifier:@"EditItem" sender:self];
-        
-        [(ItemEditIpadViewController*)[[((MainSplitViewController*)self.splitViewController).viewControllers lastObject] topViewController] setItem: [self.list.list objectAtIndex:indexPath.row]];
-        //[self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
-    
-    }*/
-}
+ }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 //warning Potentially incomplete method implementation.
@@ -210,14 +161,14 @@
     return cell;
 }
 
-/*
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return NO;
 }
-*/
+
 
 
 // Override to support editing the table view.
@@ -227,8 +178,6 @@
     {
         // Delete the row from the data source
     
-       // if( [[UIDevice currentDevice] userInterfaceIdiom] ==UIUserInterfaceIdiomPhone)
-        //{
             ToDoItem *deleteItem = [[list list] objectAtIndex:indexPath.row];
         
             for( int i = 0; i < [[(MainNavigationViewController*)self.navigationController lists] count]; i++)
@@ -236,22 +185,9 @@
                 [[[[(MainNavigationViewController*)self.navigationController lists] objectAtIndex:i] list ]removeObject:deleteItem];
             }
             [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        //}
-        /*else
-        {
-            ToDoItem *deleteItem = [[list list] objectAtIndex:indexPath.row];
-            
-            for( int i = 0; i < [[(MainSplitViewController*)self.splitViewController lists] count]; i++)
-            {
-                [[[[(MainSplitViewController*)self.splitViewController lists] objectAtIndex:i] list] removeObject:deleteItem];
-            }
-            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        }*/
+   
     }
-    else if (editingStyle == UITableViewCellEditingStyleInsert)
-    {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+  
 }
 
 
@@ -267,14 +203,14 @@
 }
 
 
-/*
+
 // Override to support conditional rearranging of the table view.
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the item to be re-orderable.
     return YES;
 }
-*/
+
 
 #pragma mark - Table view delegate
 
@@ -297,29 +233,11 @@
                 [self performSegueWithIdentifier:@"showDetail" sender:self];
             }
         }
-    //}
-    /*else
-    {
-        if( self.isEditing)
-        {
-            
-            [[(IpadFirstViewController*)([[((MainSplitViewController*)self.splitViewController).viewControllers lastObject] topViewController]) masterPopoverController] dismissPopoverAnimated:YES];
-            
-            [[[((MainSplitViewController*)self.splitViewController ).viewControllers lastObject] topViewController ]performSegueWithIdentifier:@"EditItem" sender:self];
-            
-            [(ItemEditIpadViewController*)[[((MainSplitViewController*)self.splitViewController).viewControllers lastObject] topViewController] setItem: [self.list.list objectAtIndex:indexPath.row]];
-        }
-        else
-        {
-        
-            IpadFirstViewController *cont = (IpadFirstViewController*)[[self.splitViewController.viewControllers lastObject] topViewController];
-       
-            [cont setItem: [[self.list list] objectAtIndex:indexPath.row]];
-            [cont configureView];
-        }
-    }*/
+   }
+-(void) edit
+{
+    [self performSegueWithIdentifier:@"settingsList" sender:self];
 }
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     [super prepareForSegue:segue sender:sender];
@@ -333,6 +251,11 @@
     {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         [(EditItemViewController*)[segue destinationViewController] setToDoItem:[[self.list list] objectAtIndex:indexPath.row]];
+    }
+    else if ([[segue identifier] isEqualToString:@"settingsList"])
+    {
+ 
+                [(SettingsListViewController*)([segue destinationViewController]) setList:list];
     }
      [self setNewItemNeedsEdit:NO];
     

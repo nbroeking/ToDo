@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13A558" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Main Navigation View Controller-->
@@ -63,7 +63,7 @@
                     <navigationItem key="navigationItem" id="36"/>
                     <connections>
                         <segue destination="bUK-TM-j7T" kind="push" identifier="mainList" id="5oC-Q6-Hdy"/>
-                        <segue destination="HQh-yA-v6r" kind="push" identifier="settingsList" id="5rs-ad-MGP"/>
+                        <segue destination="HQh-yA-v6r" kind="push" identifier="settingsList" id="coH-hW-ODQ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
@@ -133,7 +133,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eFD-Wb-lXK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="459" y="780"/>
+            <point key="canvasLocation" x="889" y="747"/>
         </scene>
         <!--List View Controller-->
         <scene sceneID="GMq-gA-HaN">
@@ -175,7 +175,8 @@
                     <navigationItem key="navigationItem" id="Y8c-tH-Iue"/>
                     <connections>
                         <segue destination="kjO-mg-0Bf" kind="push" identifier="showDetail" id="yZG-jX-ODG"/>
-                        <segue destination="NLE-qR-3Gk" kind="push" identifier="addEdit" id="v0k-ht-X2H"/>
+                        <segue destination="HQh-yA-v6r" kind="push" identifier="settingsList" id="81m-fM-del"/>
+                        <segue destination="NLE-qR-3Gk" kind="push" identifier="addEdit" id="cVp-Cj-Ql6"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tWu-kI-I06" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -273,7 +274,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iEL-ZA-s0B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1278" y="717"/>
+            <point key="canvasLocation" x="1453" y="735"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -282,6 +283,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="v0k-ht-X2H"/>
+        <segue reference="coH-hW-ODQ"/>
+        <segue reference="cVp-Cj-Ql6"/>
     </inferredMetricsTieBreakers>
 </document>

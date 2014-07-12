@@ -36,7 +36,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     //[self.editButtonItem setAction:@selector(changeValue)];
-     self.navigationItem.leftBarButtonItem = self.editButtonItem;
+     //self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
     
     self.title = @"ToDo Lists";
@@ -250,33 +250,34 @@
     else if( indexPath.section == 1)
     {
         // Return NO if you do not want the specified item to be editable.
-        return YES;
+        return NO;
     }
     return NO;
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+/*- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
+ 
       //  if( [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
         //{
             [[(MainNavigationViewController*)self.navigationController lists] removeObjectAtIndex:indexPath.row + 2];
         
             [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         //}
-        /*else
+        else
         {
             [[(MainSplitViewController*)self.splitViewController lists] removeObjectAtIndex:indexPath.row + 2];
             
             [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        }*/
+        }
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert)
     {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }
-}
+}*/
 
 
 // Override to support rearranging the table view.
@@ -379,16 +380,12 @@
     
     
    if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        //NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        //NSDate *object = _objects[indexPath.row];
-        //[[segue destinationViewController] setDetailItem:object];
+    
     }
     
     else if( ([[segue identifier] isEqualToString:@"settingsList"]))
     {
-      //  if( [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
-        //{
-            
+
             NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
             if(indexPath.section == 1)
             {
@@ -398,25 +395,9 @@
             {
                 [(SettingsListViewController*)([segue destinationViewController]) setList:[[(MainNavigationViewController*)self.navigationController lists] objectAtIndex:indexPath.row]];
             }
-        /*}
-        else
-        {
-            NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-            if(indexPath.section == 1)
-            {
-                [(IPadListEditViewController*)([segue destinationViewController]) setList:[[(MainSplitViewController*)self.splitViewController lists] objectAtIndex:indexPath.row + 2]];
-                
-            }
-            else
-            {
-                [(IPadListEditViewController*)([segue destinationViewController]) setList:[[(MainSplitViewController*)self.splitViewController lists] objectAtIndex:indexPath.row]];
-            }
-        }*/
     }
     if([[segue identifier] isEqualToString:@"mainList"])
     {
-       // if( [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
-        //{
             NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         
             if(indexPath.section == 1)
@@ -427,20 +408,6 @@
             {
                 [(ListViewController*)([segue destinationViewController]) setList:[[(MainNavigationViewController*)self.navigationController lists] objectAtIndex:indexPath.row]];
             }
-       // }
-        /*else
-        {
-            NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-            
-            if(indexPath.section == 1)
-            {
-                [(ListViewController*)([segue destinationViewController]) setList:[[(MainSplitViewController*)self.splitViewController lists] objectAtIndex:indexPath.row + 2]];
-            }
-            else
-            {
-                [(ListViewController*)([segue destinationViewController]) setList:[[(MainSplitViewController*)self.splitViewController lists] objectAtIndex:indexPath.row]];
-            }
-        }*/
     }
 }
 

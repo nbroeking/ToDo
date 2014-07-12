@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Nicolas C. Broeking. All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
-@interface ToDoTests : SenTestCase
+@interface ToDoTests : XCTestCase
 
 @end

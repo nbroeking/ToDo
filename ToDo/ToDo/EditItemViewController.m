@@ -138,11 +138,11 @@
             UITextField *field;
             if( [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
             {
-                field = [[UITextField alloc] initWithFrame:CGRectMake(80, 12, 220, 30)];
+                field = [[UITextField alloc] initWithFrame:CGRectMake(80, 8, 220, 30)];
             }
             else
             {
-                field = [[UITextField alloc] initWithFrame:CGRectMake(120, 18, 600, 50)];
+                field = [[UITextField alloc] initWithFrame:CGRectMake(120, 20, 600, 50)];
             }
             
             

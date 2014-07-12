@@ -58,7 +58,7 @@
 {
 //#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 2;
+    return 3;
 }
 
 -(void)setEditing:(BOOL)editing animated:(BOOL)animated
@@ -208,8 +208,9 @@
     {
         static NSString *CellIdentifier = @"Cell";
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-        
-        cell.textLabel.text = @"List of ToDoItems";
+        cell.textLabel.text = @"Delete Item";
+        cell.backgroundColor = [UIColor redColor];
+        cell.detailTextLabel.text = @"";
     }
     
     return cell;
@@ -274,6 +275,11 @@
         }
         [[self.tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryCheckmark];
         [list setCategory:[self.tableView cellForRowAtIndexPath:indexPath].textLabel.text];
+    }
+    else
+    {
+         [[(MainNavigationViewController*)self.navigationController lists]  removeObject:list];
+        [self.navigationController popToRootViewControllerAnimated:YES];
     }
 }
 

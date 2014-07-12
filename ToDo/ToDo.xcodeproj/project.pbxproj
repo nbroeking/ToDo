@@ -22,7 +22,6 @@
 		56340B111726E9CE00D98EF7 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56340B0F1726E9CE00D98EF7 /* MainStoryboard_iPad.storyboard */; };
 		56340B141726E9CE00D98EF7 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56340B131726E9CE00D98EF7 /* MasterViewController.m */; };
 		56340B171726E9CE00D98EF7 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56340B161726E9CE00D98EF7 /* DetailViewController.m */; };
-		56340B1F1726E9CF00D98EF7 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56340B1E1726E9CF00D98EF7 /* SenTestingKit.framework */; };
 		56340B201726E9CF00D98EF7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56340AF41726E9CE00D98EF7 /* UIKit.framework */; };
 		56340B211726E9CF00D98EF7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56340AF61726E9CE00D98EF7 /* Foundation.framework */; };
 		56340B291726E9CF00D98EF7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56340B271726E9CF00D98EF7 /* InfoPlist.strings */; };
@@ -74,8 +73,7 @@
 		56340B131726E9CE00D98EF7 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		56340B151726E9CE00D98EF7 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		56340B161726E9CE00D98EF7 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		56340B1D1726E9CF00D98EF7 /* ToDoTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		56340B1E1726E9CF00D98EF7 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		56340B1D1726E9CF00D98EF7 /* ToDoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		56340B261726E9CF00D98EF7 /* ToDoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ToDoTests-Info.plist"; sourceTree = "<group>"; };
 		56340B281726E9CF00D98EF7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		56340B2A1726E9CF00D98EF7 /* ToDoTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToDoTests.h; sourceTree = "<group>"; };
@@ -114,7 +112,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56340B1F1726E9CF00D98EF7 /* SenTestingKit.framework in Frameworks */,
 				56340B201726E9CF00D98EF7 /* UIKit.framework in Frameworks */,
 				56340B211726E9CF00D98EF7 /* Foundation.framework in Frameworks */,
 			);
@@ -144,7 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				56340AF11726E9CE00D98EF7 /* ToDo.app */,
-				56340B1D1726E9CF00D98EF7 /* ToDoTests.octest */,
+				56340B1D1726E9CF00D98EF7 /* ToDoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -155,7 +152,6 @@
 				56340AF41726E9CE00D98EF7 /* UIKit.framework */,
 				56340AF61726E9CE00D98EF7 /* Foundation.framework */,
 				56340AF81726E9CE00D98EF7 /* CoreGraphics.framework */,
-				56340B1E1726E9CF00D98EF7 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -275,8 +271,8 @@
 			);
 			name = ToDoTests;
 			productName = ToDoTests;
-			productReference = 56340B1D1726E9CF00D98EF7 /* ToDoTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productReference = 56340B1D1726E9CF00D98EF7 /* ToDoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -284,8 +280,19 @@
 		56340AE91726E9CE00D98EF7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastTestingUpgradeCheck = 0510;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Nicolas C. Broeking";
+				TargetAttributes = {
+					56340AF01726E9CE00D98EF7 = {
+						DevelopmentTeam = W494HRKA74;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
+					};
+				};
 			};
 			buildConfigurationList = 56340AEC1726E9CE00D98EF7 /* Build configuration list for PBXProject "ToDo" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -488,11 +495,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = ToDo/ToDo.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ToDo/ToDo-Prefix.pch";
 				INFOPLIST_FILE = "ToDo/ToDo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -504,11 +514,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = ToDo/ToDo.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ToDo/ToDo-Prefix.pch";
 				INFOPLIST_FILE = "ToDo/ToDo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -521,13 +534,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ToDo/ToDo-Prefix.pch";
 				INFOPLIST_FILE = "ToDoTests/ToDoTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -538,13 +551,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ToDo/ToDo-Prefix.pch";
 				INFOPLIST_FILE = "ToDoTests/ToDoTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};
